@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Add blog page</title>
+{% endblock title %}
+{% block body %}
+
+<h1>Add Blog page</h1>
+
+<div class="form-group">
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.media}}
+    {{form.as_p}}
+    <button class="btn btn-primary px-4" type="submit">Post</button>
+</form>
+</div>
+
+<script>
+    var name = "{{user.id}}";
+    document.getElementById("userjs").value = name ;
+</script>
+
+{% endblock body %}
+
+
+
+

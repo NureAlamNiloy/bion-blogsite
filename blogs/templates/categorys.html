@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Category</title>
+{% endblock title %}
+
+{% block body %}
+
+<h3>The Category is = {{cats}}</h3>
+<div class="row">
+
+    {% if  category_post %}
+{% for post in category_post %}
+        <div class="col-4 mt-5">
+            <div class="card">
+                {% comment %} <img src="{{post.image}}" class="card-img-top" alt="..."> {% endcomment %}
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><h5>{{post.title}}</h5></li>
+                        <li class="list-group-item">Author : <b>{{post.author}}</b></li>
+                        <li class="list-group-item"> Category: <b>{{post.category|slugify}}</b></li>
+                        <li class="list-group-item"><p>{{post.body|slice:":200"|safe}}</p></li>
+                        <li class="list-group-item">
+                            <a href="{% url 'blog-detais' post.pk %}" class="btn btn-primary">Details</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+    <h3>There is no post in this Category</h3>
+    {% endif %}
+
+
+</div>
+{% endblock body %}

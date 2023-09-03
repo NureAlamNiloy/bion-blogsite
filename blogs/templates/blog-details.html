@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Blog Details Page</title> 
+{% endblock title %}
+
+{% block body %}
+    <h3>{{blogpost.title}} </h3>
+    <h6>By: <b>{{blogpost.author}}</b>  -- {{blogpost.post_date }} </h6>
+    <hr>
+    <img src="{{blogpost.image.url}}" class="w-50">
+    <br><p>{{blogpost.body}}</p> 
+    {% if user.is_authenticated  %}
+        {% if user.id == blogpost.author.id %}
+            <p>
+                <a href="{% url 'delete-post' blogpost.pk %}" class="btn btn-danger mx-3">DELETE</a>
+                <a href="{% url 'update-post' blogpost.pk %}" class="btn btn-primary mx-3">Update</a>
+            </p>
+        {% endif %}
+    {% endif %}
+        
+{% endblock body %}
+
+

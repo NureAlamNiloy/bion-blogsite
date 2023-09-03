@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+
+<div class="row">
+    
+        {% for post in object_list %}
+        <div class="col-4 mt-5">
+            <div class="card">
+                {% comment %} <img src="{{post.image.url}}" alt=""> {% endcomment %}
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><h5>{{post.title|slice:":20"}}</h5></li>
+                        <li class="list-group-item">Author : <b>{{post.author}}</b></li>
+                        <li class="list-group-item"> Category: <a href="{% url 'categorys' post.category %}"><b>{{post.category}}</b></a></li>
+                        <li class="list-group-item">{{post.body|safe|slice:":170"}}</li>
+                        <li class="list-group-item">
+                            <a href="{% url 'blog-detais' post.pk %}" class="btn btn-primary">Details</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+</div>
+{% endblock body %}
+

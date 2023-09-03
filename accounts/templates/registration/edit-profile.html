@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Register</title>
+{% endblock title %}
+{% block body %}
+
+<h1>Profile Page...........</h1>
+
+<div class="form-group w-50 m-auto my-5">
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-secondary px-4" type="submit">Save</button>
+</form>
+</div>
+
+{% endblock body %}
+
+
+
+
+
