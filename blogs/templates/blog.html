@@ -9,7 +9,13 @@
         {% for post in object_list %}
         <div class="col-4 mt-5">
             <div class="card">
-                {% comment %} <img src="{{post.image.url}}" alt=""> {% endcomment %}
+                {% if post.image %}
+                <div class="w-100" style="height: 50%;">
+                    <img class="card-img-top" src="{{post.image.url}}" alt="Card image cap">
+                </div>
+                    
+                {% endif %}
+                
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><h5>{{post.title|slice:":20"}}</h5></li>

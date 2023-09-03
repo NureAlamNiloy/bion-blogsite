@@ -7,7 +7,9 @@
     <h3>{{blogpost.title}} </h3>
     <h6>By: <b>{{blogpost.author}}</b>  -- {{blogpost.post_date }} </h6>
     <hr>
+    {% if blogpost.image %}
     <img src="{{blogpost.image.url}}" class="w-50">
+    {% endif %}
     <br><p>{{blogpost.body}}</p> 
     {% if user.is_authenticated  %}
         {% if user.id == blogpost.author.id %}
