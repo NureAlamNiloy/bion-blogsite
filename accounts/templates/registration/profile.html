@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Blog Details Page</title> 
+{% endblock title %}
+
+{% block body %}
+    <div class="card my-5">
+        <div class="row no-gutters">
+            <div class="col-4">
+                <img src="{{profile.Profile_image.url}}" class="w-100">
+            </div>
+            <div class="col">
+                <div class="card-body">
+                    <h3 class="card-title"><b>User Name : </b>{{profile.user}}</h3>
+                    <h3 class="card-title"><b>Name : </b>{{profile.user.first_name}} {{profile.user.last_name}}</h3>
+                    <h5><b>Title : </b>({{profile.title}})</h5>
+                    <p class="card-text">{{profile.bio}}</p>
+                    <h5>
+                        <a href="{{profile.web_url}}">Website | </a>
+                        <a href="{{profile.fb_url}}">Facebook | </a>
+                        <a href="{{profile.linkedin_url}}">LinkedIn | </a>
+                    </h5>
+                    <a href="{% url 'edit_profile' %}" class="btn btn-primary mt-4">Edit Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if user.is_authenticated  %}
+        {% if user.id == profile.id %}
+        <h1>The User Create Blogs......... </h1>
+            <h3>{{user.blogpost.title}} </h3>
+            <h6>By: <b>{{blogpost.author}}</b>  -- {{blogpost.post_date }} </h6>
+            <hr>
+        {% endif %}
+    {% endif %}
+        
+{% endblock body %}
+
+

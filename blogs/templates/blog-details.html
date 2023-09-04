@@ -19,6 +19,25 @@
             </p>
         {% endif %}
     {% endif %}
+    <div class="card my-5">
+        <div class="row no-gutters">
+            <div class="col-3">
+                <img src="{{blogpost.author.profile.Profile_image.url}}" class="w-100">
+            </div>
+            <div class="col">
+                <div class="card-body">
+                    <h3 class="card-title">{{blogpost.author.profile.user}}</h3><small>({{blogpost.author.profile.title}})</small>
+                    <h5>
+                        <a href="{{blogpost.author.profile.web_url}}">Website | </a>
+                        <a href="{{blogpost.author.profile.fb_url}}">Facebook | </a>
+                        <a href="{{blogpost.author.profile.linkedin_url}}">LinkedIn | </a>
+                    </h5>
+                    <p class="card-text">{{blogpost.author.profile.bio}}</p>
+                    <a href="{% url 'profile' blogpost.author.profile.id %}" class="btn btn-primary">View Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
         
 {% endblock body %}
 

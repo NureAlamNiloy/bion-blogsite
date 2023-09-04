@@ -14,6 +14,20 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('blog')
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    bio = models.TextField()
+    Profile_image = models.ImageField(null = True, blank= True, upload_to = 'photos/profile')
+    title = models.CharField(max_length=200,blank=True, null=True)
+    web_url = models.CharField(max_length=200,blank=True, null=True, default="http://niloysarkar.pythonanywhere.com/")
+    fb_url = models.CharField(max_length=200,blank=True, null=True, default="https://www.facebook.com/")
+    linkedin_url = models.CharField(max_length=200,blank=True, null=True, default="https://bd.linkedin.com/")
+    
+    def __str__(self):
+        return str(self.user)
+    
+
+
 class blogPost(models.Model):
     title = models.CharField(max_length=478)
     title_tag = models.CharField(max_length=200, default="Niloy-Blogs")
