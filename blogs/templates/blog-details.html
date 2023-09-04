@@ -19,6 +19,7 @@
             </p>
         {% endif %}
     {% endif %}
+    {% if user.id == profile.id %}
     <div class="card my-5">
         <div class="row no-gutters">
             <div class="col-3">
@@ -38,6 +39,8 @@
             </div>
         </div>
     </div>
+    {% endif %}
+    
         
 {% endblock body %}
 

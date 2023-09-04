@@ -39,6 +39,16 @@ def CategoryView(request, cats):
     category_post = blogPost.objects.filter(category=cats.replace('-',' '))
     return render(request, 'categorys.html', {'cats':cats, 'category_post':category_post})
 
+def search_blog(request):
+    if request.method == "POST":
+        searched = request.POST.get('searched')
+        venues = blogPost.objects.filter(title__icontains=searched)
+        return render(request, 'search.html', {'searched':searched, 'venues':venues})
+    else:
+        return render(request, 'search.html', {})
+
+
+
 class AddCategoryView(CreateView):
     model = Category
     fields = '__all__'
