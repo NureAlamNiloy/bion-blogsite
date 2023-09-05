@@ -23,9 +23,6 @@ class UserEditView(generic.UpdateView):
     def get_object(self):
         return self.request.user
 
-# def profile(request):
-#     return render(request, 'registration/profile.html')
-
 
 class ShowProfileView(generic.DetailView):
     model = Profile
