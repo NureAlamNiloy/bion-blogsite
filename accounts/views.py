@@ -32,13 +32,8 @@ class ShowProfileView(generic.DetailView):
     template_name = 'registration/profile.html'
     
     def get_context_data(self, *args, **kwargs):
-        users = Profile.objects.all()
+        # users = Profile.objects.all()
         context = super(ShowProfileView, self).get_context_data(*args, **kwargs)
         page_user = get_object_or_404(Profile, id=self.kwargs['pk'])
-        # blog_posts = blogPost.objects.filter(author=Profile.user)
         context["page_user"] = page_user
-        # context = {
-        #         'page_user': page_user,
-        #         'blog_posts': blog_posts,
-        #     }
         return context  

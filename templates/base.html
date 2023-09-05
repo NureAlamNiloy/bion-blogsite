@@ -43,7 +43,7 @@
                   <a class="nav-link active" aria-current="page" href="{% url 'add-category' %}">Add-Category</a>
                 </li>
                 <li class="mx-5 nav-item d-inline">
-                  <a class="nav-link d-inline-block active" aria-current="page" href="{% url 'profile' user.profile.id %}">Profile</a>||
+                  <a class="nav-link d-inline-block active" aria-current="page" href="{% url 'profile' user.id %}">Profile</a>||
                   <a class="nav-link d-inline-block active" aria-current="page" href="{% url 'logout' %}">LogOut</a>
                 </li>
               {% else %}
