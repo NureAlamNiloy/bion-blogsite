@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_list_or_404, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import blogPost, Category
 from .forms import PostForm, EditForm
@@ -66,3 +66,4 @@ class DeletePostView(DeleteView):
     model = blogPost
     template_name = 'delete-post.html'
     success_url = reverse_lazy('blog')
+

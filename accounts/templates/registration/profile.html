@@ -20,7 +20,7 @@
                         <a href="{{profile.fb_url}}">Facebook | </a>
                         <a href="{{profile.linkedin_url}}">LinkedIn | </a>
                     </h5>
-                    {% if user.id == profile.id %}
+                    {% if user == profile.user %}
                     <a href="{% url 'edit_profile' %}" class="btn btn-primary mt-4">Edit Profile</a>
                     {% endif %}
                 </div>
@@ -28,14 +28,7 @@
         </div>
     </div>
 
-    {% if user.is_authenticated  %}
-        {% if user.id == profile.id %}
-        <h1>The User Create Blogs......... </h1>
-            <h3>{{user}} </h3>
-            <h6>By: <b></b>  -- {{blogpost.post_date }} </h6>
-            <hr>
-        {% endif %}
-    {% endif %}
+   
         
 {% endblock body %}
 
