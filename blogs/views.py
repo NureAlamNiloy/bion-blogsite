@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import blogPost, Category
 from .forms import PostForm, EditForm
 from django.urls import reverse_lazy
+  
 
 
 

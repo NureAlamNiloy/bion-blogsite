@@ -19,7 +19,7 @@ class PostForm(forms.ModelForm):
             'body' : forms.Textarea(attrs={'class':'form-control'}),
         }
 
-
+  
 class EditForm(forms.ModelForm):
     class Meta:
         model = blogPost

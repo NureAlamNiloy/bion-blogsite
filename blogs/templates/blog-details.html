@@ -10,7 +10,7 @@
     {% if blogpost.image %}
     <img src="{{blogpost.image.url}}" class="w-50">
     {% endif %}
-    <br><p>{{blogpost.body}}</p> 
+    </br>{{blogpost.body}} </br>
     {% if user.is_authenticated  %}
         {% if user.id == blogpost.author.id %}
             <p>
